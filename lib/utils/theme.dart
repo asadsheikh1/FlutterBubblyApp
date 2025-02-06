@@ -15,7 +15,6 @@ ThemeData lightTheme(BuildContext context) {
     focusColor: Colors.transparent,
     colorScheme: ColorScheme(
       primary: Colors.grey.withOpacity(0.4),
-      onBackground: ColorRes.greyShade100,
       error: ColorRes.colorTheme,
       brightness: Brightness.light,
       surface: ColorRes.greyShade100,
@@ -23,7 +22,6 @@ ThemeData lightTheme(BuildContext context) {
       onSurface: Colors.black,
       onSecondary: ColorRes.white,
       onPrimary: ColorRes.greyShade100,
-      background: Colors.transparent,
       onError: Colors.red,
     ),
     fontFamily: FontRes.fNSfUiRegular,
@@ -47,7 +45,6 @@ ThemeData darkTheme(BuildContext context) {
     focusColor: Colors.transparent,
     colorScheme: ColorScheme(
         primary: ColorRes.colorTextLight,
-        onBackground: Colors.lightBlue,
         error: ColorRes.colorTheme,
         brightness: Brightness.dark,
         surface: ColorRes.colorTextLight,
@@ -55,7 +52,6 @@ ThemeData darkTheme(BuildContext context) {
         secondary: ColorRes.colorTheme,
         onSecondary: Colors.blue,
         onPrimary: Colors.red,
-        background: Colors.transparent,
         onError: Colors.red),
     fontFamily: FontRes.fNSfUiRegular,
     textTheme: TextTheme(

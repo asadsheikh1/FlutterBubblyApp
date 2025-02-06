@@ -36,8 +36,7 @@ class ApiService {
   var client = http.Client();
 
   Future<User> registerUser(HashMap<String, String?> params) async {
-    final response =
-        await client.post(Uri.parse(UrlRes.registerUser), headers: {UrlRes.uniqueKey: ConstRes.apiKey}, body: params);
+    final response = await client.post(Uri.parse(UrlRes.registerUser), headers: {UrlRes.uniqueKey: ConstRes.apiKey}, body: params);
     print('PARAMS : $params');
 
     final responseJson = jsonDecode(response.body);
@@ -318,8 +317,7 @@ class ApiService {
     return RestResponse.fromJson(responseJson);
   }
 
-  Future<RestResponse> verifyRequest(
-      String idNumber, String name, String address, File? photoIdImage, File? photoWithIdImage) async {
+  Future<RestResponse> verifyRequest(String idNumber, String name, String address, File? photoIdImage, File? photoWithIdImage) async {
     var request = http.MultipartRequest(
       "POST",
       Uri.parse(UrlRes.verifyRequest),
@@ -331,15 +329,12 @@ class ApiService {
     request.fields[UrlRes.address] = address;
     if (photoIdImage != null) {
       request.files.add(
-        http.MultipartFile(UrlRes.photoIdImage, photoIdImage.readAsBytes().asStream(), photoIdImage.lengthSync(),
-            filename: photoIdImage.path.split("/").last),
+        http.MultipartFile(UrlRes.photoIdImage, photoIdImage.readAsBytes().asStream(), photoIdImage.lengthSync(), filename: photoIdImage.path.split("/").last),
       );
     }
     if (photoWithIdImage != null) {
       request.files.add(
-        http.MultipartFile(
-            UrlRes.photoWithIdImage, photoWithIdImage.readAsBytes().asStream(), photoWithIdImage.lengthSync(),
-            filename: photoWithIdImage.path.split("/").last),
+        http.MultipartFile(UrlRes.photoWithIdImage, photoWithIdImage.readAsBytes().asStream(), photoWithIdImage.lengthSync(), filename: photoWithIdImage.path.split("/").last),
       );
     }
     var response = await request.send();
@@ -387,15 +382,7 @@ class ApiService {
   }
 
   Future<User> updateProfile(
-      {String? fullName,
-      String? userName,
-      String? bio,
-      String? fbUrl,
-      String? instagramUrl,
-      String? youtubeUrl,
-      String? profileCategory,
-      File? profileImage,
-      String? isNotification}) async {
+      {String? fullName, String? userName, String? bio, String? fbUrl, String? instagramUrl, String? youtubeUrl, String? profileCategory, File? profileImage, String? isNotification}) async {
     var request = http.MultipartRequest(
       "POST",
       Uri.parse(UrlRes.updateProfile),
@@ -427,8 +414,7 @@ class ApiService {
     }
     if (profileImage != null) {
       request.files.add(
-        http.MultipartFile(UrlRes.userProfile, profileImage.readAsBytes().asStream(), profileImage.lengthSync(),
-            filename: profileImage.path.split("/").last),
+        http.MultipartFile(UrlRes.userProfile, profileImage.readAsBytes().asStream(), profileImage.lengthSync(), filename: profileImage.path.split("/").last),
       );
     }
 
@@ -541,14 +527,12 @@ class ApiService {
       request.fields[UrlRes.singer] = singer!;
       if (postSound != null) {
         request.files.add(
-          http.MultipartFile(UrlRes.postSound, postSound.readAsBytes().asStream(), postSound.lengthSync(),
-              filename: postSound.path.split("/").last),
+          http.MultipartFile(UrlRes.postSound, postSound.readAsBytes().asStream(), postSound.lengthSync(), filename: postSound.path.split("/").last),
         );
       }
       if (soundImage != null) {
         request.files.add(
-          http.MultipartFile(UrlRes.soundImage, soundImage.readAsBytes().asStream(), soundImage.lengthSync(),
-              filename: soundImage.path.split("/").last),
+          http.MultipartFile(UrlRes.soundImage, soundImage.readAsBytes().asStream(), soundImage.lengthSync(), filename: soundImage.path.split("/").last),
         );
       }
     } else {
@@ -556,14 +540,12 @@ class ApiService {
     }
     if (postVideo != null) {
       request.files.add(
-        http.MultipartFile(UrlRes.postVideo, postVideo.readAsBytes().asStream(), postVideo.lengthSync(),
-            filename: postVideo.path.split("/").last),
+        http.MultipartFile(UrlRes.postVideo, postVideo.readAsBytes().asStream(), postVideo.lengthSync(), filename: postVideo.path.split("/").last),
       );
     }
     if (thumbnail != null) {
       request.files.add(
-        http.MultipartFile(UrlRes.postImage, thumbnail.readAsBytes().asStream(), thumbnail.lengthSync(),
-            filename: thumbnail.path.split("/").last),
+        http.MultipartFile(UrlRes.postImage, thumbnail.readAsBytes().asStream(), thumbnail.lengthSync(), filename: thumbnail.path.split("/").last),
       );
     }
 
@@ -821,8 +803,7 @@ class ApiService {
     request.headers.addAll({UrlRes.uniqueKey: ConstRes.apiKey, UrlRes.authorization: SessionManager.accessToken});
     if (filePath != null) {
       request.files.add(
-        http.MultipartFile('file', filePath.readAsBytes().asStream(), filePath.lengthSync(),
-            filename: filePath.path.split("/").last),
+        http.MultipartFile('file', filePath.readAsBytes().asStream(), filePath.lengthSync(), filename: filePath.path.split("/").last),
       );
     }
     var response = await request.send();
@@ -832,15 +813,10 @@ class ApiService {
     return path;
   }
 
-  Future pushNotification(
-      {required String title, required String body, required String token, required Map<String, dynamic> data}) async {
+  Future pushNotification({required String title, required String body, required String token, required Map<String, dynamic> data}) async {
     await http.post(
       Uri.parse(UrlRes.notificationUrl),
-      headers: {
-        UrlRes.uniqueKey: ConstRes.apiKey,
-        UrlRes.authorization: SessionManager.accessToken,
-        'content-type': 'application/json'
-      },
+      headers: {UrlRes.uniqueKey: ConstRes.apiKey, UrlRes.authorization: SessionManager.accessToken, 'content-type': 'application/json'},
       body: json.encode({
         'message': {
           'notification': {
@@ -879,8 +855,7 @@ class ApiService {
   }
 
   Future<Agora> agoraListStreamingCheck(String channelName, String authToken, String agoraAppId) async {
-    http.Response response = await http.get(Uri.parse('${UrlRes.agoraLiveStreamingCheck}$agoraAppId/$channelName'),
-        headers: {UrlRes.authorization: 'Basic $authToken'});
+    http.Response response = await http.get(Uri.parse('${UrlRes.agoraLiveStreamingCheck}$agoraAppId/$channelName'), headers: {UrlRes.authorization: 'Basic $authToken'});
     return Agora.fromJson(jsonDecode(response.body));
   }
 
@@ -895,8 +870,7 @@ class ApiService {
     return Status.fromJson(jsonDecode(response.body));
   }
 
-  Future<NudityMediaId> checkVideoModerationApiMoreThenOneMinutes(
-      {required File? file, required String apiUser, required String apiSecret}) async {
+  Future<NudityMediaId> checkVideoModerationApiMoreThenOneMinutes({required File? file, required String apiUser, required String apiSecret}) async {
     var request = http.MultipartRequest(
       'POST',
       Uri.parse(UrlRes.checkVideoModerationMoreThenOneMinutes),
@@ -924,8 +898,7 @@ class ApiService {
     return nudityStatus;
   }
 
-  Future<NudityChecker> getOnGoingVideoJob(
-      {required String mediaId, required String apiUser, required String apiSecret}) async {
+  Future<NudityChecker> getOnGoingVideoJob({required String mediaId, required String apiUser, required String apiSecret}) async {
     http.Response response = await http.get(Uri.parse(
       'https://api.sightengine.com/1.0/video/byid.json?id=${mediaId}&api_user=${apiUser}&api_secret=${apiSecret}',
     )

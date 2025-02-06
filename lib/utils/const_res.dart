@@ -1,9 +1,9 @@
 class ConstRes {
-  static final String base = '------ BASE URL -------';
+  static final String base = 'http://bubble.appadalabs.com/';
   static const String apiKey = 'shortzz123';
   static final String baseUrl = '${base}api/';
 
-  static final String itemBaseUrl = 'https://--------------/bubbly/';
+  static final String itemBaseUrl = 'http://bubble.appadalabs.com/bubbly/';
 
   // Agora Credential
   static final String customerId = '--------';
