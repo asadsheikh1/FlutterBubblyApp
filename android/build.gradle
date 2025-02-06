@@ -7,6 +7,14 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    // Set Java version compatibility
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+        options.compilerArgs << "-Xlint:-options"
+        sourceCompatibility = JavaVersion.VERSION_23
+        targetCompatibility = JavaVersion.VERSION_23
+    }
 }
 
 rootProject.buildDir = '../build'
