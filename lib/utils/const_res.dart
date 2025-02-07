@@ -5,9 +5,12 @@ class ConstRes {
 
   static final String itemBaseUrl = 'http://bubble.appadalabs.com/bubbly/';
 
+// Agora App ID
+  static const String agoraAppId = 'bced981a445d4f13896b3f855621202a';
+
   // Agora Credential
-  static final String customerId = '--------';
-  static final String customerSecret = '--------';
+  static final String customerId = '31c696a649e74a26a86dffcdc7e7d9f9';
+  static final String customerSecret = '61c554233f9649bab3d28ebb92ae0acb';
 
   // Starting screen open end_user_license_agreement sheet link
   static final String agreementUrl = "https://work.bubbletokapp.com/";

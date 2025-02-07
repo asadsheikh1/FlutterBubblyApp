@@ -11,12 +11,7 @@ class ForgotPassword extends StatelessWidget {
   final TextEditingController resetPassController;
   final FocusNode resetFocusNode;
 
-  const ForgotPassword(
-      {Key? key,
-      required this.onResetBtnClick,
-      required this.resetPassController,
-      required this.resetFocusNode})
-      : super(key: key);
+  const ForgotPassword({Key? key, required this.onResetBtnClick, required this.resetPassController, required this.resetFocusNode}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +21,7 @@ class ForgotPassword extends StatelessWidget {
         child: Wrap(
           children: [
             Container(
-              decoration: BoxDecoration(
-                  color: myLoading.isDark
-                      ? ColorRes.colorPrimaryDark
-                      : ColorRes.white,
-                  borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(20))),
+              decoration: BoxDecoration(color: myLoading.isDark ? ColorRes.colorPrimaryDark : ColorRes.white, borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
               child: SingleChildScrollView(
                 child: AspectRatio(
                   aspectRatio: 1 / 0.8,
@@ -46,9 +36,7 @@ class ForgotPassword extends StatelessWidget {
                           children: [
                             Text(
                               LKey.forgotPassword.tr,
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: FontRes.fNSfUiMedium),
+                              style: TextStyle(fontSize: 18, fontFamily: FontRes.fNSfUiMedium),
                               textAlign: TextAlign.center,
                             ),
                             Align(
@@ -73,9 +61,7 @@ class ForgotPassword extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 50),
                         child: Text(
                           LKey.enterYourMailOnWhichYouHaveCreatedNanAccount.tr,
-                          style: TextStyle(
-                              fontFamily: FontRes.fNSfUiMedium,
-                              color: ColorRes.colorTextLight),
+                          style: TextStyle(fontFamily: FontRes.fNSfUiMedium, color: ColorRes.colorTextLight),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -84,27 +70,19 @@ class ForgotPassword extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: 25),
                         child: Text(
                           LKey.email.tr,
-                          style: TextStyle(
-                              fontFamily: FontRes.fNSfUiSemiBold,
-                              color: ColorRes.colorTextLight),
+                          style: TextStyle(fontFamily: FontRes.fNSfUiSemiBold, color: ColorRes.colorTextLight),
                         ),
                       ),
                       const SizedBox(height: 10),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            color: myLoading.isDark
-                                ? ColorRes.colorPrimary
-                                : ColorRes.greyShade100,
-                            borderRadius: BorderRadius.circular(5)),
+                        decoration: BoxDecoration(shape: BoxShape.rectangle, color: myLoading.isDark ? ColorRes.colorPrimary : ColorRes.greyShade100, borderRadius: BorderRadius.circular(5)),
                         child: TextField(
                           controller: resetPassController,
                           focusNode: resetFocusNode,
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
+                            contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                           ),
                           cursorColor: ColorRes.colorTextLight,
                           cursorHeight: 15,
@@ -120,8 +98,7 @@ class ForgotPassword extends StatelessWidget {
                             color: Colors.transparent,
                             borderRadius: BorderRadius.circular(5),
                             child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(5),

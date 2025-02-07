@@ -55,7 +55,7 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        applicationId "com.retrytech.shortzz.apps"
+        applicationId "com.retrytech.bubbly"
         minSdkVersion 24
         targetSdkVersion 34
         multiDexEnabled true
