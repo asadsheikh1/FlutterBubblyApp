@@ -1,6 +1,6 @@
 class ConstRes {
   static final String base = 'http://bubble.appadalabs.com/';
-  static const String apiKey = 'shortzz123';
+  static const String apiKey = 'dev123';
   static final String baseUrl = '${base}api/';
 
   static final String itemBaseUrl = 'http://bubble.appadalabs.com/bubbly/';
